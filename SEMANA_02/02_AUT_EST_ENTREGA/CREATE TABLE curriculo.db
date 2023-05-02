@@ -1,0 +1,53 @@
+CREATE TABLE pessoa ( 
+	id_pessoa            INTEGER NOT NULL  PRIMARY KEY  ,
+	rua                  TEXT     ,
+	número               INTEGER     ,
+	telefone             INTEGER     ,
+	cep                  INTEGER     ,
+	primeiro_nome        TEXT     ,
+	sobrenome            TEXT     ,
+	email                TEXT     
+ );
+CREATE TABLE experiência ( 
+	id_experiência       INTEGER NOT NULL  PRIMARY KEY  ,
+	instituição          TEXT     ,
+	início               DATE     ,
+	fim                  DATE     ,
+	descrição            TEXT     ,
+	id_pessoa            INTEGER     ,
+	FOREIGN KEY ( id_pessoa ) REFERENCES pessoa( id_pessoa )  
+ ) ;
+CREATE TABLE formação ( 
+	id_formação          INTEGER NOT NULL  PRIMARY KEY  ,
+	Curso                TEXT     ,
+	início               DATE     ,
+	fim                  DATE     ,
+	descrição            TEXT     ,
+	id_pessoa            INTEGER     ,
+	FOREIGN KEY ( id_pessoa ) REFERENCES pessoa( id_pessoa )  
+ ) ;
+CREATE TABLE realizações ( 
+	id_realizações       INTEGER NOT NULL  PRIMARY KEY  ,
+	título               TEXT     ,
+	ano                  INTEGER     ,
+	descrição            TEXT     ,
+	id_pessoa            INTEGER     ,
+	FOREIGN KEY ( id_pessoa ) REFERENCES pessoa( id_pessoa )  
+ ) ;
+CREATE TABLE habilidades ( 
+	id_habilidades       INTEGER NOT NULL  PRIMARY KEY  ,
+	nota                 INTEGER     ,
+	descrição            TEXT     ,
+	nome_da_habilidade   INTEGER     ,
+	id_pessoa            INTEGER     ,
+	FOREIGN KEY ( id_pessoa ) REFERENCES pessoa( id_pessoa )  
+ ) ;
+CREATE TABLE personalidade ( 
+	id_personalidade     INTEGER NOT NULL  PRIMARY KEY  ,
+	nota                 INTEGER     ,
+	descrição            TEXT     ,
+	atributo             TEXT     ,
+	id_pessoa            INTEGER     ,
+	FOREIGN KEY ( id_pessoa ) REFERENCES pessoa( id_pessoa )  
+ ) ;
+
