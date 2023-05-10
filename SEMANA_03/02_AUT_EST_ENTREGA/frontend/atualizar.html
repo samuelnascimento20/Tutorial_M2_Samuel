@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width" />
+    <title>CRUD</title>
+</head>
+<h1>Atualização de Usuário</h1>
+    <form name="form1" method="post" action="/atualizaUsuario">
+        NOME COMPLETO: <input type="text" id="primeiro_nome" name="primeiro_nome" size="50" value="">
+        <br>
+        Numero: <input type="integer" id="número" name="número" value="">
+        <br>
+        TELEFONE: <input type="integer" id="telefone" name="telefone" value="">
+        <br>
+        <input type="hidden" id="id_pessoa" name="id_pessoa" value="">
+        <input type="submit" value="ATUALIZAR">  
+    </form>    
+    <script>
+        let url = new URL(window.location.href);
+        let params = url.searchParams;
+        url = '/atualizaUsuario?id_pessoa='+url.searchParams.get("id_pessoa");
+
+        fetch(url)
+        .then((response) => {
+            return response.json();
+        })
+        .then((data) => {
+            let usuarios = data;
+
+            usuarios.map(function(usuario) {
+                document.getElementById('id_pessoa').value = pessoa.id_pessoa;
+                document.getElementById('primeiro_nome').value = pessoa.primeiro_nome;
+                document.getElementById('número').value = pessoa.número;
+                document.getElementById('telefone').value = pessoa.telefone;
+            });
+            alert(response.json());
+        })
+        .catch(function(error) {
+            console.log(error);
+        });
+    </script>
+</body>
+</html>
