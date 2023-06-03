@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
+    <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
@@ -8,13 +9,25 @@
 </html>
 <nav>
     <ul class="menu">
-      <li><a href="trajetoria.html">Trajetória</a></li>
-      <li><a href="contato.html">Contato</a></li>
+        <script>
+            function goTrajetoria() {
+                window.location.href = 'trajetoria.html';
+            }
+        </script>
+         <div class="trajetoria-button">
+            <button onclick="goTrajetoria()">Trajetória</button>
+        </div>
+        <script>
+            function goContato() {
+                window.location.href = 'contato.html';
+            }
+        </script>
+         <div class="contato-button">
+            <button onclick="goContato()">Contato</button>
+        </div>
     </ul>
 </nav>
 <div id="conteudo"></div>      
-    <button id="experiencia-btn">Experiência</button>
-    <div id="experiencia-section">...</div>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <div id="conteudo"></div>     
     <img src="C:\Users\Inteli\Pictures\carlao.jfif">
@@ -90,120 +103,7 @@
     <p>Olímpiada OPF (1989-2°lugar), Prêmio consul de desenvolvedor web do ano (2002), Mestre em gestão estrátegica e planejamento Havard business (2013)</p>
 </body>
 </html>
-<style>
-    nav {
-    background-color: #000000;
-    padding: 1%;
-    position: relative;
-    z-index: 1;
-  }
-  
-  .menu {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    text-align: center;
-    position: relative;
-  }
-  
-  .menu li {
-    display: inline-block;
-    margin-right: 10px;
-  }
-  
-  .menu li a {
-    text-decoration: none;
-    color: #ffffff;
-    padding: 5px 10px;
-    border: 1px solid #696868;
-    border-radius: 5px;
-  }
-  
-  .menu li a:hover {
-    background-color: #ddd;
-  }
-      body {
-          background-color: black;
-          color: white;
-          font-family: Arial, sans-serif;
-      }
-      
-      table {
-          width: 100%;
-          border-collapse: collapse;
-      }
-      
-      th, td {
-          padding: 10px;
-          text-align: left;
-          border-bottom: 1px solid white;
-      }
-      
-      th {
-          background-color: #333;
-      }
-      img {
-          width: 100px; 
-          height: 100px;
-      }
-      h1 {
-          text-align: center;
-      }
-      #experiencia-btn {
-    background-color: #383333;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
-  }
-  
-  #experiencia-btn:hover {
-    background-color: #685e5e;
-  }
-  
-  #experiencia-section {
-    display: none;
-    padding: 20px;
-    background-color: #f2f2f2;
-  }
-  body {
-    font-family: Arial, sans-serif;
-    background-color: #000000;
-    margin: 0;
-    padding: 0;
-}
 
-.container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-}
-p{
-    color: #f2f2f2;
-    font-size: larger;
-}
-h1 {
-    color: #f2f2f2;
-    text-align: center;
-}
-
-.contact-info {
-    margin-top: 20px;
-}
-
-.contact-info p {
-    margin: 10px 0;
-}
-
-.contact-info a {
-    text-decoration: none;
-    color: #f2f2f2;
-}
-
-.contact-info a:hover {
-    text-decoration: underline;
-}
-</style>
 
 
 

@@ -50,29 +50,12 @@ nav {
           background-color: #333;
       }
       img {
-          width: 100px; 
-          height: 100px;
+          width: 150px; 
+          height: 150px;
       }
       h1 {
           text-align: center;
       }
-      #experiencia-btn {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
-  }
-  
-  #experiencia-btn:hover {
-    background-color: #45a049;
-  }
-  
-  #experiencia-section {
-    display: none;
-    padding: 20px;
-    background-color: #f2f2f2;
-  }
   body {
     font-family: Arial, sans-serif;
     background-color: #000000;
@@ -109,4 +92,37 @@ h1 {
 
 .contact-info a:hover {
     text-decoration: underline;
+}
+h1 {
+  color: #f2f2f2;
+}
+p {
+  font-size: larger;
+  color:#f2f2f2
+}
+body {
+  background-color: black;
+}
+h1 {
+  color: #f2f2f2;
+}
+p {
+  font-size: larger;
+  color:#f2f2f2
+}
+body {
+  background-color: black;
+}
+.menu {
+  text-align: center;
+}
+
+.menu .trajetoria-button,
+.menu .contato-button {
+  display: inline-block;
+  margin: 0 10px;
+}
+
+.menu button {
+  padding: 10px 20px;
 }
