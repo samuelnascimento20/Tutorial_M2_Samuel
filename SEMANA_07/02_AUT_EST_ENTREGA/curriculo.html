@@ -2,6 +2,7 @@
 <html lang="pt-br">
 <head>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="modoclaro.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
@@ -17,6 +18,8 @@
         </ul>
     </nav>
     
+    <button id="modo-claro-toggle" class="btn btn-light modo-button">Alternar Modo Claro</button>
+
     <div class="carousel">
         <img src="C:\Users\Inteli\Pictures\carlao.jfif">
         <img src="C:\Users\Inteli\Pictures\cacau show.jpg" alt="Imagem 2">
@@ -27,17 +30,6 @@
     </div>
 
     <h1>Currículo</h1>
-    <script src="carousel.js"></script>
-    <script src="eventojquery.js"></script>
-    <script>
-        function goTrajetoria() {
-            window.location.href = 'trajetoria.html';
-        }
-
-        function goContato() {
-            window.location.href = 'contato.html';
-        }
-    </script>
     <h2>Informações Pessoais</h2>
     <table>
         <tr>
@@ -105,7 +97,20 @@
     </ul>
 
     <h2>Observações adicionais</h2>
-    <p>Olímpiada OPF (1989-2°lugar), Prêmio consul de desenvolvedor web do ano (2002), Mestre em gestão estrátegica e planejamento Havard business (2013)</p>
+    <p>Olímpiada OPF (1989-2°lugar), Prêmio consul de desenvolvedor web do ano (2002), Mestre em gestão estratégica e planejamento Harvard business (2013)</p>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="modoclaro.js"></script>
+    <script src="eventojquery.js"></script>
+    <script>
+        function goTrajetoria() {
+            window.location.href = 'trajetoria.html';
+        }
+
+        function goContato() {
+            window.location.href = 'contato.html';
+        }
+    </script>
 </body>
 </html>
 

@@ -1,0 +1,24 @@
+.modo-button {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+}
+
+.modo-claro {
+    background-color: beige;
+    color: #343a40;
+}
+
+.modo-claro .carousel img {
+    filter: brightness(100%);
+}
+
+.modo-claro table th {
+    background-color: #007bff;
+    color: rgb(0, 0, 0);
+}
+
+.modo-claro h1 {
+    color:black;
+}
+
