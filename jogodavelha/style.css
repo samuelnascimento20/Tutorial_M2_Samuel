@@ -1,0 +1,18 @@
+h1 {
+    text-align: center;
+  }
+  
+  #game-board {
+    margin: 0 auto;
+    border-collapse: collapse;
+  }
+  
+  #game-board td {
+    width: 100px;
+    height: 100px;
+    border: 1px solid black;
+    text-align: center;
+    font-size: 48px;
+    cursor: pointer;
+  }
+  
