@@ -2,29 +2,94 @@
 <html>
 <head>
   <title>Jogo da Velha</title>
-  <link rel="stylesheet" type="text/css" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.6.1/sql-wasm.js"></script>
+  <script src="jogo.js"></script>
 </head>
 <body>
-  <h1>Jogo da Velha</h1>
-
-  <table id="game-board">
+  <table>
     <tr>
-      <td onclick="makeMove(0, 0)"></td>
-      <td onclick="makeMove(0, 1)"></td>
-      <td onclick="makeMove(0, 2)"></td>
+      <td id="cell-0-0" onclick="makeMove(0, 0)"></td>
+      <td id="cell-0-1" onclick="makeMove(0, 1)"></td>
+      <td id="cell-0-2" onclick="makeMove(0, 2)"></td>
     </tr>
     <tr>
-      <td onclick="makeMove(1, 0)"></td>
-      <td onclick="makeMove(1, 1)"></td>
-      <td onclick="makeMove(1, 2)"></td>
+      <td id="cell-1-0" onclick="makeMove(1, 0)"></td>
+      <td id="cell-1-1" onclick="makeMove(1, 1)"></td>
+      <td id="cell-1-2" onclick="makeMove(1, 2)"></td>
     </tr>
     <tr>
-      <td onclick="makeMove(2, 0)"></td>
-      <td onclick="makeMove(2, 1)"></td>
-      <td onclick="makeMove(2, 2)"></td>
+      <td id="cell-2-0" onclick="makeMove(2, 0)"></td>
+      <td id="cell-2-1" onclick="makeMove(2, 1)"></td>
+      <td id="cell-2-2" onclick="makeMove(2, 2)"></td>
     </tr>
   </table>
 
-  <script src="script.js"></script>
+  <script>
+    let db;
+    const currentPlayer = 'X';
+    let gameEnded = false;
+
+    // Carregar a biblioteca SQLite.js
+    init();
+
+    // Função para inicializar o banco de dados
+    function init() {
+      const xhr = new XMLHttpRequest();
+      xhr.open('GET', 'sqlite.wasm', true);
+      xhr.responseType = 'arraybuffer';
+      xhr.onload = () => {
+        const uInt8Array = new Uint8Array(xhr.response);
+        db = new SQL.Database(uInt8Array);
+        createTable();
+      };
+      xhr.send();
+    }
+
+    // Função para criar a tabela 'moves'
+    function createTable() {
+      const createTableSQL = 'CREATE TABLE IF NOT EXISTS moves (id INTEGER PRIMARY KEY, row INTEGER, col INTEGER, player TEXT)';
+      db.run(createTableSQL);
+    }
+
+    // Função chamada quando uma jogada é feita
+    function makeMove(row, col) {
+      if (gameEnded) {
+        alert('O jogo já terminou! Por favor, recarregue a página para jogar novamente.');
+        return;
+      }
+
+      // Verificar se a célula já está ocupada
+      const cell = document.getElementById(`cell-${row}-${col}`);
+      if (cell.textContent !== '') {
+        alert('Essa célula já está ocupada! Por favor, escolha outra.');
+        return;
+      }
+
+      // Atualizar a tabela HTML
+      cell.textContent = currentPlayer;
+
+      // Salvar a jogada no banco de dados
+      const insertSQL = 'INSERT INTO moves (row, col, player) VALUES (?, ?, ?)';
+      const stmt = db.prepare(insertSQL);
+      stmt.run(row, col, currentPlayer);
+      stmt.free();
+
+      // Verificar se houve um vencedor
+      if (checkWinner(currentPlayer)) {
+        alert(`O jogador ${currentPlayer} venceu!`);
+        gameEnded = true;
+        return;
+      }
+    }
+
+    // Função para verificar se há um vencedor
+    function checkWinner(player) {
+      // Lógica para verificar as combinações vencedoras
+      // ...
+
+      return false;
+    }
+  </script>
 </body>
 </html>
+
